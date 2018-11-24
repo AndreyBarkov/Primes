@@ -2,22 +2,23 @@ const express = require('express');
 const router = express.Router();
 const PrimesHandler = require('./PrimesHandler');
 
-router.post('/api/primesMedian', (req, res) =>{
+router.post('/api/primesMedian', (req, res) => {
     const limit = parseInt(req.body.limit, 10);
-    if(!limit){
-        res.status(400)
-        res.send('Limit value is invalid');
+    if (!limit) {
+        res.sendStatus(400)
         return;
     }
-  return PrimesHandler.findPrimesMedian(limit).then(median =>{
-      res.send(median);
-  })
+    return PrimesHandler.findPrimesMedian(limit)
+    .then(median => {
+        res.send(median);
+    })
+    .catch((error)=>{
+        res.status(500);
+        res.send(error);
+    })
 })
-router.get('/', (req, res)=>{
-    res.send('TEST');
+router.get('/', (req, res) => {
+    res.send('Test');
 })
-router.get('/api/primesTEST', (req, res)=>{
-    const primesMedian = PrimesHandler.findPrimesMedian(10);
-    res.send(primesMedian);
-})
+
 module.exports = router;
