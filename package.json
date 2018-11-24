@@ -1,0 +1,17 @@
+{
+  "name": "primes-fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon ./server/server.js",
+    "client": "cd ./client && npm start",
+    "dev": "start npm run server && start npm run client"
+  },
+  "author": "Andrey Barkov",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
