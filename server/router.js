@@ -9,8 +9,9 @@ router.post('/api/primesMedian', (req, res) =>{
         res.send('Limit value is invalid');
         return;
     }
-    const primesMedian = PrimesHandler.findPrimesMedian(limit);
-    res.send(primesMedian);
+  return PrimesHandler.findPrimesMedian(limit).then(median =>{
+      res.send(median);
+  })
 })
 router.get('/', (req, res)=>{
     res.send('TEST');
