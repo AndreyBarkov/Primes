@@ -18,12 +18,6 @@ describe('router', () => {
         sandbox.restore();
     })
 
-    describe('default route', () => {
-        it('returns test', (done) => {
-            request(server).get('/').expect('Test', done)
-
-        })
-    })
     describe('/api/primesMedian route', () => {
         describe('request receives valid parameters', () => {
            
