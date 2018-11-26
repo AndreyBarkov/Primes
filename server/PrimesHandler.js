@@ -1,8 +1,8 @@
 class PrimesHandler {
 
     static findPrimesMedian(limit) {
-        if (limit < 2) {
-            return Promise.reject('Invalid limit value');
+        if (limit === 2) {
+            return Promise.resolve([2]);
         }
         const sieve = new Array(limit).fill(true);
         for (let i = 2; i < Math.sqrt(limit); i++) {

@@ -19,6 +19,9 @@ describe('PrimesHandler', () => {
         it('rejects when limit value is invalid', ()=>{
             expect(PrimesHandler.findPrimesMedian(1)).to.be.rejected;
         })
+        it('returns limit when limit is lowest prime number', ()=>{
+            expect(PrimesHandler.findPrimesMedian(2)).to.eventually.eql([2])
+        })
     })
     describe('findArrayMedian', ()=>{
         it('returns 1 digit array when array length is odd number', ()=>{
