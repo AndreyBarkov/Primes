@@ -1,5 +1,5 @@
-var chai = require("chai");
-var chaiAsPromised = require("chai-as-promised");
+const chai = require("chai");
+const chaiAsPromised = require("chai-as-promised");
 
 chai.use(chaiAsPromised);
 const expect = chai.expect;
@@ -10,8 +10,9 @@ describe('PrimesHandler', () => {
         beforeEach(() => {
 
         })
-        it('returns 2 digit median when input is valid', () => {
+        it('returns 2 digit median when input is valid', (done) => {
             expect(PrimesHandler.findPrimesMedian(10)).to.eventually.eql([3, 5])
+            done();
         })
         it('returns 1 digit median when input is valid', () => {
             expect(PrimesHandler.findPrimesMedian(18)).to.eventually.eql([7])
@@ -20,7 +21,7 @@ describe('PrimesHandler', () => {
             expect(PrimesHandler.findPrimesMedian(1)).to.be.rejected;
         })
         it('returns limit when limit is lowest prime number', ()=>{
-            expect(PrimesHandler.findPrimesMedian(2)).to.eventually.eql([2])
+            expect(PrimesHandler.findPrimesMedian(2)).to.eventually.eql([])
         })
     })
     describe('findArrayMedian', ()=>{
