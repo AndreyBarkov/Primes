@@ -19,7 +19,7 @@ class App extends Component {
       body: JSON.stringify({ limit: value })
     }).then(response => {
       if (!response.ok) {
-        var err = new Error("HTTP status code: " + response.status);
+        const err = new Error("HTTP status code: " + response.status);
         err.response = response;
         err.status = response.status;
         throw err;
@@ -47,7 +47,7 @@ class App extends Component {
     }
     this.setState({error:error.message})
   }
-  
+
   render() {
     return (
       <div className="App">

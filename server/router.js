@@ -6,7 +6,6 @@ router.post('/api/primesMedian', (req, res) => {
     const limit = parseInt(req.body.limit, 10);
     if (!limit || limit< 2 || limit >= MAX_LIMIT) {
         res.sendStatus(400)
-        res.send('Limit is invalid')
         return;
     }
     PrimesHandler.findPrimesMedian(limit)
@@ -19,7 +18,8 @@ router.post('/api/primesMedian', (req, res) => {
     })
 })
 router.get('/', (req, res) => {
-    res.send('Test');
+    res.sendFile('../client/build/index.html')
+
 })
 
 module.exports = router;
